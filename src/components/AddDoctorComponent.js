@@ -72,7 +72,7 @@ const AddDoctorComponent = () => {
                             <div className="form-group mb-2">
                                 <label className="form-lable">First Name:<span style={{color:"red"}}>*</span></label>
                                 <input
-                                    required
+                                    
                                     type="text"
                                     placeholder="Enter first name"
                                     name="firstName"

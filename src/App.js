@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link ,Redirect} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -29,6 +29,10 @@ import ViewVaccineComponent from './components/ViewVaccineComponent';
 import EventBus from "./common/EventBus";
 import UserHomePageComponent from "./components/UserHomePageComponent";
 import VaccineCalenderComponent from "./components/VaccineCalenderComponent";
+import UserProfileComponent from "./components/UserProfileComponent";
+import EditUserProfileComponent from "./components/EditUserProfileComponent";
+import ListBookingComponent from "./components/ListBookingComponent";
+import AddBookingComponent from "./components/AddBookingComponent";
 
 class App extends Component {
   constructor(props) {
@@ -182,6 +186,11 @@ class App extends Component {
           <Route exact path="/view-vaccine/:id" component={ViewVaccineComponent}></Route>
           <Route path='/user-home' component={UserHomePageComponent}></Route>
           <Route path='/vaccine-calender' component={VaccineCalenderComponent}></Route>
+          <Route path='/view-user-profile' component={UserProfileComponent}></Route>
+          <Route path='/edit-user-profile' component={EditUserProfileComponent}></Route>
+          <Route path='/booking-details' component={ListBookingComponent}></Route>
+          <Route path='/book-vaccine' component={AddBookingComponent}></Route>
+          <Redirect to='/'></Redirect>
           </Switch>
         </div>
 

@@ -41,7 +41,7 @@ const UserHomePageComponent = () => {
                     </div>
                 </div>
                 <div className='card-footer'>
-                    <Link to={'/benificiaries'} >Book</Link>
+                    <Link to={'/book-vaccine'} >Book</Link>
                 </div>
                 </div>
                 </div>
@@ -61,7 +61,7 @@ const UserHomePageComponent = () => {
                     </div>
                 </div>
                 <div className='card-footer'>
-                    <Link to={'/hospitals'} >View Details</Link>
+                    <Link to={'/booking-details'} >View Details</Link>
                 </div>
                 </div>
                 </div>
@@ -71,7 +71,7 @@ const UserHomePageComponent = () => {
                 <div className='card-header text-white' style={{backgroundColor:"#0dcaf0"}}>
                     <div className='row align-items-center'>
                         <div className='col'>
-                           <h3>Vaccines</h3>
+                           <h3>Profile</h3>
 
                         </div>
                         <div className='col'>
@@ -81,7 +81,7 @@ const UserHomePageComponent = () => {
                     </div>
                 </div>
                 <div className='card-footer'>
-                    <Link to={'/vaccines'} >View Details</Link>
+                    <Link to={'/edit-user-profile'} >View Details</Link>
                 </div>
                 </div>
                 </div>
