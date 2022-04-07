@@ -34,7 +34,7 @@ const ListBenificiaryComponent = () => {
         <div className='container'>
             <br/>
             <h2 className='text-center'>List Benificiaries
-            <Link to={"/add-benificiary"} className='btn btn-success mx-3'>Add Benificiary</Link>
+            
             <Link to={"/admin-home"} className="btn btn-info mx-3 " >Go To Home</Link>
             </h2>
             <br/>
@@ -60,7 +60,7 @@ const ListBenificiaryComponent = () => {
                                 <td>{benificiary.mobNo}</td>
                             <td>
                             <Link to={`/view-benificiary/${benificiary.id}`} className="btn btn-primary mx-2" style={{marginLeft:"10px"}}>View</Link>
-                            <Link to={`/edit-benificiary/${benificiary.id}`} className="btn btn-outline-primary mx-2">Edit</Link>
+                            
                             <button className='btn btn-danger' onClick={()=>deleteBenificiary(benificiary.id)} style={{marginLeft:"10px"}}>Delete</button>
                             </td>
                             </tr>

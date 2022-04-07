@@ -27,14 +27,14 @@ const EditUserProfileComponent = () => {
 
         if(id){
             BenificiaryService.updateBenificiary(id,benificiary).then((response)=>{
-                history.push("/benificiaries")
+                history.push("/user-home")
             }).catch(error=>{
                 console.log(error)
             })
         }
         else{
             BenificiaryService.createBenificiary(benificiary).then((response)=>{
-                history.push("/benificiaries")
+                history.push("/user-home")
             }).catch(error=>{
                 console.log(error)
             })
@@ -216,9 +216,9 @@ const EditUserProfileComponent = () => {
                                     value={gender}
                                     onChange={(e) => setGender(e.target.value)}
                                 >
-                                    <option value="Male" name="gender">Male</option>
-                                     <option value="Female"name="gender">Female</option>
-
+                                    
+                                <option selected>Select Gender</option><option value="Male">Male</option>
+                                <option value="Female">Female</option>
                                 </select>
                                 </div>
 

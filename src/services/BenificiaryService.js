@@ -23,6 +23,10 @@ class BenificiaryService{
     deleteBenificiary(benificiaryId){
         return axios.delete(BENIFICIARY_BASE_URL + '/' +benificiaryId)
     }
+
+    getCount(){
+        return axios.get(BENIFICIARY_BASE_URL + '/count' )
+    }
 }
 
 export default new BenificiaryService();

@@ -5,7 +5,7 @@ import "./App.css";
 import "./css/index.css"
 import AuthService from "./services/auth.service";
 import AddDoctorComponent from './components/AddDoctorComponent';
-
+import VaccineLogo from './images/vaccinelogo.PNG'
 import ListDoctorComponents from './components/ListDoctorComponents';
 import Login from "./components/login.component";
 import Register from "./components/register.component";
@@ -34,6 +34,8 @@ import EditUserProfileComponent from "./components/EditUserProfileComponent";
 import ListBookingComponent from "./components/ListBookingComponent";
 import AddBookingComponent from "./components/AddBookingComponent";
 import HomePageComponent from "./components/HomePageComponent";
+import AboutVaccineComponent from "./components/AboutVaccineComponent";
+import ContactComponent from "./components/ContactComponent";
 
 class App extends Component {
   constructor(props) {
@@ -86,7 +88,8 @@ class App extends Component {
       <div className="main-container">
         <nav className="navbar navbar-expand navbar-dark" style={{backgroundColor:"#4682B4",fontWeight:"bold"}}>
           <Link to={"/"} className="navbar-brand">
-          KidsImmunization
+         <img src={VaccineLogo} className="logo-image">
+         </img>
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item" >
@@ -206,6 +209,8 @@ class App extends Component {
             <Route path='/edit-user-profile' component={EditUserProfileComponent}></Route>
             <Route path='/booking-details' component={ListBookingComponent}></Route>
             <Route path='/book-vaccine' component={AddBookingComponent}></Route>
+            <Route path='/about-us' component={AboutVaccineComponent}></Route>
+            <Route path='/contact-us' component={ContactComponent}></Route>
             <Redirect to='/'></Redirect>
           </Switch>
         </div>

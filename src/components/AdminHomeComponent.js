@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../css/index.css'
+import BenificiaryService from '../services/BenificiaryService'
 const HomePageComponent = () => {
 
+  
     return(
  
         <div className='container mt-5'>
@@ -14,9 +16,6 @@ const HomePageComponent = () => {
                         <div className='col'>
                            <h3>Doctors</h3>
 
-                        </div>
-                        <div className='col'>
-                            <h3>08</h3>
                         </div>
 
                     </div>
@@ -35,10 +34,7 @@ const HomePageComponent = () => {
                            <h3>Benificiaries</h3>
 
                         </div>
-                        <div className='col'>
-                            <h3>02</h3>
-                        </div>
-
+                        
                     </div>
                 </div>
                 <div className='card-footer'>
@@ -55,10 +51,7 @@ const HomePageComponent = () => {
                            <h3>Hospitals</h3>
 
                         </div>
-                        <div className='col'>
-                            <h3>07</h3>
-                        </div>
-
+                       
                     </div>
                 </div>
                 <div className='card-footer'>
@@ -75,10 +68,7 @@ const HomePageComponent = () => {
                            <h3>Vaccines</h3>
 
                         </div>
-                        <div className='col'>
-                            <h3>10</h3>
-                        </div>
-
+                       
                     </div>
                 </div>
                 <div className='card-footer'>
@@ -87,6 +77,22 @@ const HomePageComponent = () => {
                 </div>
                 </div>
 
+                <div className='col-md-3 '>
+                    <div className='card text-center '>
+                <div className='card-header bg-primary text-white'>
+                    <div className='row align-items-center'>
+                        <div className='col'>
+                           <h3>Booking Details</h3>
+
+                        </div>
+                       
+                    </div>
+                </div>
+                <div className='card-footer'>
+                    <Link to={'/booking-details'}>View Details</Link>
+                </div>
+                </div>
+                </div>
                 
             </div>
         </div>

@@ -14,9 +14,7 @@ const UserHomePageComponent = () => {
                            <h3>Vaccines</h3>
 
                         </div>
-                        <div className='col'>
-                            <h3>08</h3>
-                        </div>
+                       
 
                     </div>
                 </div>
@@ -34,9 +32,7 @@ const UserHomePageComponent = () => {
                            <h3>Book Vaccine</h3>
 
                         </div>
-                        <div className='col'>
-                            <h3>02</h3>
-                        </div>
+                       
 
                     </div>
                 </div>
@@ -51,13 +47,10 @@ const UserHomePageComponent = () => {
                 <div className='card-header bg-primary text-white'>
                     <div className='row align-items-center'>
                         <div className='col'>
-                           <h3>Booking Details</h3>
+                           <h3>Booking List</h3>
 
                         </div>
-                        <div className='col'>
-                            <h3>07</h3>
-                        </div>
-
+                        
                     </div>
                 </div>
                 <div className='card-footer'>
@@ -74,10 +67,7 @@ const UserHomePageComponent = () => {
                            <h3>Profile</h3>
 
                         </div>
-                        <div className='col'>
-                            <h3>10</h3>
-                        </div>
-
+                       
                     </div>
                 </div>
                 <div className='card-footer'>

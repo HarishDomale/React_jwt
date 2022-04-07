@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import BookingService from '../services/BookingService'
-
+import authService from '../services/auth.service';
 const ListBookingComponent = () => {
   
     const[bookings,setBookings]=useState([])
@@ -29,6 +29,8 @@ const ListBookingComponent = () => {
         })
     }
 
+
+
     return(
         <div className='container'>
             <br/>
@@ -46,8 +48,7 @@ const ListBookingComponent = () => {
                     <th>Booking Date</th>
                     <th>Booking Time</th>
                     <th>Vaccine Name</th>
-                    <th>Hospital Name</th>
-                    <th>Doctor Name</th>
+                    <th>Hospital Name</th>                
                     <th>Action</th>
                 </thead>
                
@@ -64,7 +65,6 @@ const ListBookingComponent = () => {
                                 <td>{booking.time}</td>
                                 <td>{booking.vaccineName}</td>
                                 <td>{booking.hospitalName}</td>
-                                <td>{booking.doctorName}</td>
                             <td>
                                        
                             <button className='btn btn-danger' onClick={()=>deleteBooking(booking.id)} style={{marginLeft:"10px"}}>Delete</button>

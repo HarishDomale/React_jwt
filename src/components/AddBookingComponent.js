@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect,useState } from 'react'
 import {Link, useHistory,useParams} from "react-router-dom";
 import BookingService from '../services/BookingService'
-
+import VaccineService from '../services/VaccineService';
 const AddBookingComponent = () => {
  
     const[firstName,setFirstName]=useState('')
@@ -9,16 +9,16 @@ const AddBookingComponent = () => {
     const[email,setEmail]=useState('')
     const[date,setDate]=useState('')
     const[time,setTime]=useState('')
-    const[vaccineName,setVaccineName]=useState('')
+    const[vaccine,setVaccine]=useState([])
     const[hospitalName,setHospitalName]=useState('')
-    const[doctorName,setDoctorName]=useState('')
+    
     const {id}=useParams()
     const history= useHistory()
 
     const saveBooking=(e)=>{
         e.preventDefault()
 
-        const booking={firstName,lastName,email,date,time,vaccineName,hospitalName,doctorName}
+        const booking={firstName,lastName,email,date,time,vaccine,hospitalName}
 
         BookingService.createBooking(booking).then((response)=>{
             history.push('/booking-details')
@@ -26,6 +26,18 @@ const AddBookingComponent = () => {
             console.log(error)
         })
     }
+
+    
+
+    useEffect(() => {
+        VaccineService.getAllVaccines().then((response)=>{
+            setVaccine(response.data)
+        }).catch(error=>{
+            console.log(error)
+        })
+
+    }, [])
+    
 
     return(
         <div>
@@ -90,20 +102,26 @@ const AddBookingComponent = () => {
                                 >
                                 </input>
 
-                                <div className="form-group mb-2">
+                            <div className='form-group mb-2'>
                                 <label className="form-lable">Time slot:<span style={{color:"red"}}>*</span></label>
-                                <input
-                                    type="text"
-                                    placeholder="Enter time slot"
+                                <select
+                                    type="select"
+                                    placeholder="select time slot"
                                     name="time"
                                     className="form-control"
                                     value={time}
                                     onChange={(e) => setTime(e.target.value)}
                                 >
-                                </input>
-                            </div>
+                                    
+                                <option selected>Select Time</option><option value="10 AM">10.00 AM</option>
+                                <option value="11.00 AM">11.00 AM</option>
+                                <option value="12.00 AM">12.00 PM</option>
+                                <option value="01.00 PM">01.00 PM</option>
+                                <option value="02.00 PM">02.00 PM</option>
+                                </select>
+                                </div>
 
-                            <div className="form-group mb-2">
+                            {/* <div className="form-group mb-2">
                                 <label className="form-lable">Vaccine Name:<span style={{color:"red"}}>*</span></label>
                                 <input
                                     type="text"
@@ -114,6 +132,20 @@ const AddBookingComponent = () => {
                                     onChange={(e) => setVaccineName(e.target.value)}
                                 >
                                 </input>
+                            </div> */}
+
+                            <div className="form-group mb-2">
+                                <label className="form-lable">Vaccine Name:<span style={{color:"red"}}>*</span></label>
+                               <select
+                               type="select"
+                               placeholder="Enter vaccine name"
+                               name="vaccine"
+                               className="form-control"
+                               value={vaccine}
+                               onChange={(e) => setVaccine(e.target.value)}>
+                                   {vaccine.map((vaccines)=>(
+                                    <option value={vaccines.id}>{vaccines.vaccineName}</option>))}
+                               </select>
                             </div>
 
                             <div className="form-group mb-2">
@@ -129,19 +161,7 @@ const AddBookingComponent = () => {
                                 </input>
                             </div>
 
-                            <div className="form-group mb-2">
-                                <label className="form-lable">Doctor Name:<span style={{color:"red"}}>*</span></label>
-                                <input
-                                    type="text"
-                                    placeholder="Enter doctor name"
-                                    name="doctorName"
-                                    className="form-control"
-                                    value={doctorName}
-                                    onChange={(e) => setDoctorName(e.target.value)}
-                                >
-                                </input>
-                            </div>
-
+                            
                             </div>
                             <br/>
                             <button className="btn btn-success" onClick={(e) => saveBooking(e)}>Submit</button>

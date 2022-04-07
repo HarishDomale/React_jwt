@@ -56,10 +56,11 @@ label {
   }
 }
 
-/* .logo-image{
+.logo-image{
   width: 160px;
   height: 40px;
   border-radius: 2px;
   overflow: hidden;
   margin: -6px;
-} */
+  padding-left: 10px;
+} 
