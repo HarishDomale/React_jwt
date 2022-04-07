@@ -24,7 +24,7 @@ const ViewHospitalComponent = () => {
        <div className="container">
          <br/>
          <Link to={'/hospitals'} className="btn btn-primary float-right">Back</Link>
-           <div className="card text-white bg-dark col-md-6 offset-md-3 offset-md-3">
+           <div className="card col-md-6 offset-md-3 offset-md-3">
            <h2 className="card-header text-center">Profile</h2>
        <div className="card-body">
            <form>

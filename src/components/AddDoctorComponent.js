@@ -129,7 +129,7 @@ const AddDoctorComponent = () => {
                             
                         </form>
                        
-                        <span className="float-right" style={{color:"red"}}>* fields mandatory </span>
+                        <span className="float-right" style={{color:"#DC143C"}}>* fields mandatory </span>
                     </div>
                 </div>
 

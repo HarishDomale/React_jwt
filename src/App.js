@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { Switch, Route, Link ,Redirect} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-
+import "./css/index.css"
 import AuthService from "./services/auth.service";
 import AddDoctorComponent from './components/AddDoctorComponent';
 
 import ListDoctorComponents from './components/ListDoctorComponents';
 import Login from "./components/login.component";
 import Register from "./components/register.component";
-import Home from "./components/home.component";
+
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardHospital from "./components/board-hospital.component";
@@ -33,6 +33,7 @@ import UserProfileComponent from "./components/UserProfileComponent";
 import EditUserProfileComponent from "./components/EditUserProfileComponent";
 import ListBookingComponent from "./components/ListBookingComponent";
 import AddBookingComponent from "./components/AddBookingComponent";
+import HomePageComponent from "./components/HomePageComponent";
 
 class App extends Component {
   constructor(props) {
@@ -82,13 +83,13 @@ class App extends Component {
     const { currentUser, showHospitalBoard, showAdminBoard,showUserBoard } = this.state;
 
     return (
-      <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+      <div className="main-container">
+        <nav className="navbar navbar-expand navbar-dark" style={{backgroundColor:"#4682B4",fontWeight:"bold"}}>
           <Link to={"/"} className="navbar-brand">
           KidsImmunization
           </Link>
           <div className="navbar-nav mr-auto">
-            <li className="nav-item">
+            <li className="nav-item" >
               <Link to={"/home"} className="nav-link">
                 Home
               </Link>
@@ -126,7 +127,22 @@ class App extends Component {
               </li>
             )} */}
           </div>
+          <div className="navbar-nav" style={{marginLeft:"800px"}}>
+            <li className="nav-item">
+              <Link to={"/about-us"} className="nav-link">
+                About
+              </Link>
 
+            </li>
+            </div>
+            <div className="navbar-nav">
+            <li className="nav-item">
+              <Link to={"/contact-us"} className="nav-link">
+                Contact
+              </Link>
+
+            </li>
+            </div>
           {currentUser ? (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
@@ -141,7 +157,7 @@ class App extends Component {
               </li>
             </div>
           ) : (
-            <div className="navbar-nav ml-auto">
+            <div className="navbar-nav mx-auto">
               <li className="nav-item">
                 <Link to={"/login"} className="nav-link">
                   Login
@@ -156,10 +172,10 @@ class App extends Component {
             </div>
           )}
         </nav>
-
+            
         <div className="container mt-3">
           <Switch>
-            <Route exact path={["/", "/home"]} component={Home} />
+            <Route exact path={["/", "/home"]} component={HomePageComponent} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />

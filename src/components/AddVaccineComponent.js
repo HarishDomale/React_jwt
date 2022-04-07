@@ -178,7 +178,7 @@ const AddVaccineComponent = () => {
                             <button className="btn btn-success" onClick={(e) => saveOrUpdateVaccine(e)}>Submit</button>
                             <Link to={"/vaccines"} className="btn btn-danger" style={{marginLeft:"10px"}}>Cancel</Link>
                             </form>
-                            <span className="float-right" style={{color:"red"}}>* fields mandatory </span>
+                            <span className="float-right" style={{color:"#DC143C"}}>* fields mandatory </span>
                         </div>
                     </div>
                 </div>

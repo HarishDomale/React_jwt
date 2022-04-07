@@ -6,10 +6,11 @@ label {
 .card-container.card {
   max-width: 350px !important;
   padding: 40px 40px;
+  background-color: transparent;
 }
 
 .card {
-  background-color: #f7f7f7;
+  background-color: transparent;
   padding: 20px 25px 30px;
   margin: 0 auto 25px;
   margin-top: 50px;
@@ -30,3 +31,35 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+#header-img{
+  text-align: right;
+}
+#header .animated{
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+@-webkit-keyframes up-down{
+  0% {
+    transform: translateY(10px);
+  }
+  100%{
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes up-down {
+  0%{
+    transform: translateY(10px);
+  }
+  100%{
+    transform: translateY(-10px);
+  }
+}
+
+/* .logo-image{
+  width: 160px;
+  height: 40px;
+  border-radius: 2px;
+  overflow: hidden;
+  margin: -6px;
+} */

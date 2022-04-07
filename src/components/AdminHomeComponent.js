@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import '../css/index.css'
 const HomePageComponent = () => {
 
     return(
@@ -9,7 +9,7 @@ const HomePageComponent = () => {
             <div className='row'>
                 <div className='col-md-3 '>
                     <div className='card text-center'>
-                <div className='card-header text-white'style={{backgroundColor:"#20c997"}}>
+                <div className='card-header  text-white'style={{backgroundColor:"#20c997"}}>
                     <div className='row align-items-center'>
                         <div className='col'>
                            <h3>Doctors</h3>
@@ -29,7 +29,7 @@ const HomePageComponent = () => {
 
                 <div className='col-md-3 '>
                     <div className='card text-center '>
-                <div className='card-header text-white' style={{backgroundColor:"#aa66cc"}}>
+                <div className='card-header text-white' style={{backgroundColor:"#DDA0DD"}}>
                     <div className='row align-items-center'>
                         <div className='col'>
                            <h3>Benificiaries</h3>
@@ -62,14 +62,14 @@ const HomePageComponent = () => {
                     </div>
                 </div>
                 <div className='card-footer'>
-                    <Link to={'/hospitals'} >View Details</Link>
+                    <Link to={'/hospitals'}>View Details</Link>
                 </div>
                 </div>
                 </div>
 
                 <div className='col-md-3 ' >
                     <div className='card text-center '>
-                <div className='card-header text-white' style={{backgroundColor:"#0dcaf0"}}>
+                <div className='card-header text-white' style={{backgroundColor:"#2F4F4F"}}>
                     <div className='row align-items-center'>
                         <div className='col'>
                            <h3>Vaccines</h3>

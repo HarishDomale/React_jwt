@@ -154,7 +154,7 @@ const AddHospitalComponent = () => {
                             <Link to={"/hospitals"} className="btn btn-danger" style={{marginLeft:"10px"}}>Cancel</Link>
 
                         </form>
-                        <span className="float-right" style={{color:"red"}}>* fields mandatory </span>
+                        <span className="float-right" style={{color:"#DC143C"}}>* fields mandatory </span>
                  </div>
              </div>
             </div>

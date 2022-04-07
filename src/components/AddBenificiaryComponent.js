@@ -225,7 +225,7 @@ const AddBenificiaryComponent = () => {
                                 <button className="btn btn-success" onClick={(e) => saveOrUpdateBenificiary(e)}>Submit</button>
                             <Link to={"/benificiaries"} className="btn btn-danger" style={{marginLeft:"10px"}}>Cancel</Link>
                             </form>
-                            <span className="float-right" style={{color:"red"}}>* fields mandatory </span>
+                            <span className="float-right" style={{color:"#DC143C"}}>* fields mandatory </span>
                         </div>
 
                     </div>
