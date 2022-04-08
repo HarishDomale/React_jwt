@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory,useParams } from 'react-router-dom'
 
-import HospitalService from '../services/HospitalService'
+import HospitalService from '../../services/HospitalService'
 
 const AddHospitalComponent = () => {
  
@@ -12,13 +12,14 @@ const AddHospitalComponent = () => {
     const[phone,setPhone]=useState('')
     const[website,setWebsite]=useState('')
     const[address,setAddress]=useState('')
+    const [userId,setUserId] = useState('')
     const {id}=useParams()
     const history=useHistory()
 
     const saveOrUpdateHospital=(e)=>{
         e.preventDefault();
 
-        const hospital={hospitalName,userName,email,phone,website,address}
+        const hospital={hospitalName,userName,email,phone,website,address,userId}
 
         if(id){
             HospitalService.updateHospital(id,hospital).then((response)=>{
@@ -45,6 +46,7 @@ const AddHospitalComponent = () => {
          setPhone(response.data.phone)
          setWebsite(response.data.website)
          setAddress(response.data.address)
+         setUserId(response.data.userId)
      }).catch(error=>{
          console.log(error)
      })
@@ -60,6 +62,28 @@ const AddHospitalComponent = () => {
         }
     }
 
+    const demo=()=>{
+        if(id){
+            return(
+                <></>
+            )
+        }else{
+            return(
+                <div className='form-group mb-2'>
+                                <label className="form-lable">UserId:<span style={{color:"red"}}>*</span></label>
+                                <input
+                                    type="number"
+                                    placeholder="Enter your user Id"
+                                    name="userId"
+                                    className="form-control"
+                                    value={userId}
+                                    onChange={(e) => setUserId(e.target.value)}
+                                >
+                                </input>
+                                </div>
+            )
+        }
+    }
     return (
         <div>
              <br/>
@@ -149,6 +173,10 @@ const AddHospitalComponent = () => {
                                 >
                                 </input>
                             </div>
+
+                            {
+                                demo()
+                            }
 
                             <button className="btn btn-success" onClick={(e) => saveOrUpdateHospital(e)}>Submit</button>
                             <Link to={"/hospitals"} className="btn btn-danger" style={{marginLeft:"10px"}}>Cancel</Link>

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import VaccineService from "../services/VaccineService";
+import VaccineService from "../../services/VaccineService";
 import { Link } from "react-router-dom";
 
-
-const ViewVaccineComponent
- = () => {
+const AdminViewVaccine = () => {
     const {id}=useParams()
     const [vaccine,setVaccine]=useState(null);
 
@@ -23,7 +21,7 @@ const ViewVaccineComponent
        content =
        <div className="container">
          <br/><br/>
-         <Link to={'/vaccine-calender'} className="btn btn-primary float-right">Back</Link>
+         <Link to={'/vaccines'} className="btn btn-primary float-right">Back</Link>
 
            <div className="card col-md-6 offset-md-3 offset-md-3">
            <h2 className="text-center">Vaccine Info</h2>
@@ -76,8 +74,6 @@ const ViewVaccineComponent
            {content}
        </div>
    )
-    
-
 }
 
-export default ViewVaccineComponent
+export default AdminViewVaccine

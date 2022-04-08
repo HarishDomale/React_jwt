@@ -4,9 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./css/index.css"
 import AuthService from "./services/auth.service";
-import AddDoctorComponent from './components/AddDoctorComponent';
+import AddDoctorComponent from './components/admin/AddDoctorComponent';
 import VaccineLogo from './images/vaccinelogo.PNG'
-import ListDoctorComponents from './components/ListDoctorComponents';
+import ListDoctorComponents from './components/admin/ListDoctorComponents';
 import Login from "./components/login.component";
 import Register from "./components/register.component";
 
@@ -14,28 +14,31 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardHospital from "./components/board-hospital.component";
 import BoardAdmin from "./components/board-admin.component";
-import ListBenificiaryComponent from './components/ListBenificiaryComponent';
-import AddBenificiaryComponent from './components/AddBenificiaryComponent';
-import ViewDoctorComponent from './components/ViewDoctorComponent';
-import AdminHomeComponent from './components/AdminHomeComponent';
-import ListHospitalComponent from './components/ListHospitalComponent';
-import ListVaccineComponent from './components/ListVaccineComponent';
-import AddHospitalComponent from './components/AddHospitalComponent';
-import AddVaccineComponent from './components/AddVaccineComponent';
-import ViewBenificiaryComponent from './components/ViewBenificiaryComponent';
-import ViewHospitalComponent from './components/ViewHospitalComponent';
+import ListBenificiaryComponent from './components/admin/ListBenificiaryComponent';
+import AddBenificiaryComponent from './components/user/AddBenificiaryComponent';
+import ViewDoctorComponent from './components/admin/ViewDoctorComponent';
+import AdminHomeComponent from './components/admin/AdminHomeComponent';
+import ListHospitalComponent from './components/admin/ListHospitalComponent';
+import ListVaccineComponent from './components/admin/ListVaccineComponent';
+import AddHospitalComponent from './components/admin/AddHospitalComponent';
+import AddVaccineComponent from './components/admin/AddVaccineComponent';
+import ViewBenificiaryComponent from './components/admin/ViewBenificiaryComponent';
+import ViewHospitalComponent from './components/admin/ViewHospitalComponent';
 import ViewVaccineComponent from './components/ViewVaccineComponent';
 // import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
-import UserHomePageComponent from "./components/UserHomePageComponent";
+import UserHomePageComponent from "./components/user/UserHomePageComponent";
 import VaccineCalenderComponent from "./components/VaccineCalenderComponent";
-import UserProfileComponent from "./components/UserProfileComponent";
-import EditUserProfileComponent from "./components/EditUserProfileComponent";
+import UserProfileComponent from "./components/user/UserProfileComponent";
+import EditUserProfileComponent from "./components/user/EditUserProfileComponent";
 import ListBookingComponent from "./components/ListBookingComponent";
-import AddBookingComponent from "./components/AddBookingComponent";
+import AddBookingComponent from "./components/user/AddBookingComponent";
 import HomePageComponent from "./components/HomePageComponent";
-import AboutVaccineComponent from "./components/AboutVaccineComponent";
+import AboutVaccineComponent from "./components/admin/AboutVaccineComponent";
 import ContactComponent from "./components/ContactComponent";
+import HospitalHomePageComponent from "./components/hospital/HospitalHomePageComponent";
+import AdminViewVaccine from "./components/admin/AdminViewVaccine";
+import HospitalDoctorList from "./components/hospital/HospitalDoctorList";
 
 class App extends Component {
   constructor(props) {
@@ -100,7 +103,7 @@ class App extends Component {
 
             {showHospitalBoard && (
               <li className="nav-item">
-                <Link to={"/hospital"} className="nav-link">
+                <Link to={"/hospital-home"} className="nav-link">
                   Hospital Board
                 </Link>
               </li>
@@ -183,7 +186,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/user" component={BoardUser} />
-            <Route path="/hospital" component={BoardHospital} />
+            <Route path="/hospital-home" component={HospitalHomePageComponent} />
             <Route path="/admin" component={BoardAdmin} />
             <Route path='/admin-home' component={AdminHomeComponent}></Route>
             <Route path='/doctors' component={ListDoctorComponents}></Route>
@@ -202,7 +205,7 @@ class App extends Component {
             <Route path="/view-hospital/:id" component={ViewHospitalComponent}></Route>
             <Route exact path="/add-vaccine" component={AddVaccineComponent}></Route>
             <Route exact path="/edit-vaccine/:id" component={AddVaccineComponent}></Route>
-            <Route exact path="/view-vaccine/:id" component={ViewVaccineComponent}></Route>
+            <Route exact path="/admin-view-vaccine/:id" component={AdminViewVaccine}></Route>
             <Route path='/user-home' component={UserHomePageComponent}></Route>
             <Route path='/vaccine-calender' component={VaccineCalenderComponent}></Route>
             <Route path='/view-user-profile' component={UserProfileComponent}></Route>
@@ -211,6 +214,8 @@ class App extends Component {
             <Route path='/book-vaccine' component={AddBookingComponent}></Route>
             <Route path='/about-us' component={AboutVaccineComponent}></Route>
             <Route path='/contact-us' component={ContactComponent}></Route>
+            <Route path='/view-vaccine/:id' component={ViewVaccineComponent}></Route>
+            <Route path='/hospital-doctors' component={HospitalDoctorList}></Route>
             <Redirect to='/'></Redirect>
           </Switch>
         </div>

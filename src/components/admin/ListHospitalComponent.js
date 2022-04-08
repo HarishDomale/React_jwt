@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import HospitalService from '../services/HospitalService'
+import HospitalService from '../../services/HospitalService'
 
 const ListHospitalComponent = () => {
 

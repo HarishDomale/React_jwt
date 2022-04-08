@@ -36,7 +36,7 @@ const ListBookingComponent = () => {
             <br/>
             <h2 className='text-center'>Booking List
             
-            <Link to={"/user-home"} className="btn btn-info mx-3 " >Go To Home</Link>
+           
             </h2>
             <br/>
             <table className='table border shadow'>

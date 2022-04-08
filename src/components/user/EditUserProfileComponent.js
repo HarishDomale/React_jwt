@@ -1,7 +1,7 @@
 import React, { useState ,useEffect} from 'react'
 import { useParams,useHistory,Link } from 'react-router-dom'
 
-import BenificiaryService from '../services/BenificiaryService'
+import BenificiaryService from '../../services/BenificiaryService'
 
 const EditUserProfileComponent = () => {
     const [firstName, setFirstName] = useState('')

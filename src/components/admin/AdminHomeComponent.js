@@ -1,9 +1,9 @@
 import React, {useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import '../css/index.css'
-import BenificiaryService from '../services/BenificiaryService'
-const HomePageComponent = () => {
 
+
+const HomePageComponent = () => {
+    
   
     return(
  

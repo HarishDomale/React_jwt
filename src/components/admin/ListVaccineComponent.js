@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import VaccineService from '../services/VaccineService'
+import VaccineService from '../../services/VaccineService'
 const ListVaccineComponent = () => {
     const [vaccines, setVaccines] = useState([])
    
@@ -50,7 +50,7 @@ const ListVaccineComponent = () => {
                         <td>{vaccine.description}</td>
                         <td>{vaccine.route}</td>
                         <td>
-                                        <Link class="btn btn-primary mx-2" to={`/view-vaccine/${vaccine.id}`}>
+                                        <Link class="btn btn-primary mx-2" to={`/admin-view-vaccine/${vaccine.id}`}>
                                             View
                                         </Link>
                                         <Link class="btn btn-outline-primary mx-2" to={`/edit-vaccine/${vaccine.id}`}>

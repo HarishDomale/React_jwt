@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import {Link, useHistory,useParams} from "react-router-dom";
-import BookingService from '../services/BookingService'
-import VaccineService from '../services/VaccineService';
+import BookingService from '../../services/BookingService'
+import VaccineService from '../../services/VaccineService';
 const AddBookingComponent = () => {
  
     const[firstName,setFirstName]=useState('')
@@ -9,7 +9,7 @@ const AddBookingComponent = () => {
     const[email,setEmail]=useState('')
     const[date,setDate]=useState('')
     const[time,setTime]=useState('')
-    const[vaccine,setVaccine]=useState([])
+    const[vaccineName,setVaccineName]=useState('')
     const[hospitalName,setHospitalName]=useState('')
     
     const {id}=useParams()
@@ -17,11 +17,13 @@ const AddBookingComponent = () => {
 
     const saveBooking=(e)=>{
         e.preventDefault()
-
-        const booking={firstName,lastName,email,date,time,vaccine,hospitalName}
+       
+        const booking={firstName,lastName,email,date,time,vaccineName,hospitalName}
 
         BookingService.createBooking(booking).then((response)=>{
+            console.log(response.data)
             history.push('/booking-details')
+            
         }).catch(error=>{
             console.log(error)
         })
@@ -29,14 +31,14 @@ const AddBookingComponent = () => {
 
     
 
-    useEffect(() => {
-        VaccineService.getAllVaccines().then((response)=>{
-            setVaccine(response.data)
-        }).catch(error=>{
-            console.log(error)
-        })
-
-    }, [])
+    // useEffect(() => {
+    //     VaccineService.getAllVaccines().then((response)=>{
+    //         setVaccineName(response.data)
+    //     }).catch(error=>{
+    //         console.log(error)
+    //     });
+        
+    // }, [])
     
 
     return(
@@ -121,7 +123,7 @@ const AddBookingComponent = () => {
                                 </select>
                                 </div>
 
-                            {/* <div className="form-group mb-2">
+                            <div className="form-group mb-2">
                                 <label className="form-lable">Vaccine Name:<span style={{color:"red"}}>*</span></label>
                                 <input
                                     type="text"
@@ -132,21 +134,23 @@ const AddBookingComponent = () => {
                                     onChange={(e) => setVaccineName(e.target.value)}
                                 >
                                 </input>
-                            </div> */}
+                            </div>
 
-                            <div className="form-group mb-2">
+                            {/* <div className="form-group mb-2">
                                 <label className="form-lable">Vaccine Name:<span style={{color:"red"}}>*</span></label>
                                <select
                                type="select"
                                placeholder="Enter vaccine name"
-                               name="vaccine"
+                               name="vaccineName"
                                className="form-control"
-                               value={vaccine}
-                               onChange={(e) => setVaccine(e.target.value)}>
-                                   {vaccine.map((vaccines)=>(
-                                    <option value={vaccines.id}>{vaccines.vaccineName}</option>))}
+                               value={vaccineName}
+                               onChange={(e) => setVaccineName(e.target.value)}>
+                                   
+                                   {vaccineName.map((vaccine)=>(
+                                       
+                                    <option >{vaccine.vaccineName}</option>))}
                                </select>
-                            </div>
+                            </div> */}
 
                             <div className="form-group mb-2">
                                 <label className="form-lable">Hospital Name:<span style={{color:"red"}}>*</span></label>

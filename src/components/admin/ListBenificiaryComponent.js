@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import BenificiaryService from "../services/BenificiaryService";
+import BenificiaryService from "../../services/BenificiaryService";
 
 const ListBenificiaryComponent = () => {
   

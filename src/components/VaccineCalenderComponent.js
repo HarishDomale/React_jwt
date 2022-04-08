@@ -26,7 +26,7 @@ const VaccineCalenderComponent = () => {
         <br/>
         <h2 className='text-center'>List Of Vaccines
         
-        <Link to={"/user-home"} class="btn btn-info mx-3 " >Go To Home</Link>
+       
         </h2>
         <table className='table border shadow'>
             <thead className='thead-dark'>

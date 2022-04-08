@@ -1,9 +1,10 @@
-import React, { useEffect,useState } from 'react'
-import { Link,useParams } from 'react-router-dom';
-import BenificiaryService from '../services/BenificiaryService'
+import React, { useState,useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import BenificiaryService from '../../services/BenificiaryService'
 
-const UserProfileComponent = () => {
-
+const ViewBenificiaryComponent = () => {
+  
     const {id}=useParams()
     const [benificiary,setBenificiary]=useState(null);
 
@@ -22,7 +23,7 @@ const UserProfileComponent = () => {
        <div className="container">
            <br/>
            <Link to={'/benificiaries'} className="btn btn-primary float-right">Back</Link>
-           <div className="card text-white bg-dark col-md-6 offset-md-3 offset-md-3">
+           <div className="card col-md-6 offset-md-3 offset-md-3">
            <h2 className="text-center">Profile</h2>
        <div className="card-body">
            <form>
@@ -70,6 +71,8 @@ const UserProfileComponent = () => {
            <div className="form-group mb-2">
            <h4>Gender: {benificiary.gender}</h4>
            </div>
+
+           
            </form>
        </div>
        </div>
@@ -82,6 +85,9 @@ const UserProfileComponent = () => {
        </div>
    )
     
+
+    
+   
 }
 
-export default UserProfileComponent
+export default ViewBenificiaryComponent

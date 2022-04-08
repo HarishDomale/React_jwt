@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const UserHomePageComponent = () => {
+
+
     return(
  
         <div className='container mt-5'>
@@ -71,7 +73,7 @@ const UserHomePageComponent = () => {
                     </div>
                 </div>
                 <div className='card-footer'>
-                    <Link to={'/edit-user-profile'} >View Details</Link>
+                    <Link to={'/view-user-profile'} >View Details</Link>
                 </div>
                 </div>
                 </div>
