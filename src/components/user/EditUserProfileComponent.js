@@ -1,6 +1,6 @@
 import React, { useState ,useEffect} from 'react'
 import { useParams,useHistory,Link } from 'react-router-dom'
-
+import DatePicker from 'react-datepicker';
 import BenificiaryService from '../../services/BenificiaryService'
 
 const EditUserProfileComponent = () => {
@@ -67,7 +67,7 @@ const EditUserProfileComponent = () => {
             return <h2 className='text-center'>Update Benificiary</h2>
         }
         else{
-            return <h2 className='text-center'>Add Benificiary</h2>
+            return <h2 className='text-center'>Update Profile</h2>
         }
     }
     
@@ -140,15 +140,18 @@ const EditUserProfileComponent = () => {
 
                                 <div className='form-group mb-2'>
                                 <label className="form-lable">Date of Birth:<span style={{color:"red"}}>*</span></label>
-                                <input
-                                    type="date"
-                                    placeholder="Enter your dob"
-                                    name="dob"
+                                <DatePicker
+                                   selected={dob}
                                     className="form-control"
-                                    value={dob}
-                                    onChange={(e) => setDob(e.target.value)}
+                                    //value={date}
+                                    onChange={(e) => setDob(e)}
+                                    dateFormat='yyyy/MM/dd'
+                                    maxDate={new Date()}
+                                    isClearable
+                                    showYearDropdown
+                                    scrollableMonthYearDropdown
                                 >
-                                </input>
+                                </DatePicker>
                                 </div>
 
                                 <div className='form-group mb-2'>

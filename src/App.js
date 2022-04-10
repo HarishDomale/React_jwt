@@ -181,41 +181,56 @@ class App extends Component {
             
         <div className="container mt-3">
           <Switch>
+            {showUserBoard &&[
+               <Route path='/user-home' component={UserHomePageComponent}></Route>,
+               <Route path='/view-user-profile' component={EditUserProfileComponent}></Route>,
+              <Route path='/edit-user-profile' component={EditUserProfileComponent}></Route>,
+              <Route path='/book-vaccine' component={AddBookingComponent}></Route>,
+              <Route path='/add-benificiary' component={AddBenificiaryComponent}></Route>,
+              <Route path='/edit-benificiary/:id' component={AddBenificiaryComponent}></Route>
+
+            ]}
+
+            {showHospitalBoard && [
+              <Route path='/hospital-doctors' component={HospitalDoctorList}></Route>,
+              <Route path="/hospital-home" component={HospitalHomePageComponent} />
+              
+            ]}
             <Route exact path={["/", "/home"]} component={HomePageComponent} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/user" component={BoardUser} />
-            <Route path="/hospital-home" component={HospitalHomePageComponent} />
+            
             <Route path="/admin" component={BoardAdmin} />
-            <Route path='/admin-home' component={AdminHomeComponent}></Route>
-            <Route path='/doctors' component={ListDoctorComponents}></Route>
-            <Route path='/add-doctor' component={AddDoctorComponent}></Route>
-            <Route path='/edit-doctor/:id' component={AddDoctorComponent}></Route>
-            <Route path='/view-doctor/:id' component={ViewDoctorComponent}></Route>
-            <Route path='/benificiaries' component={ListBenificiaryComponent}></Route>
-            <Route path='/add-benificiary' component={AddBenificiaryComponent}></Route>
-            <Route path='/edit-benificiary/:id' component={AddBenificiaryComponent}></Route>
-            <Route path='/view-benificiary/:id' component={ViewBenificiaryComponent}></Route>
-          
-            <Route exact path="/hospitals" component={ListHospitalComponent}></Route>
-            <Route exact path="/vaccines" component={ListVaccineComponent}></Route>
-            <Route exact path="/add-hospital" component={AddHospitalComponent}></Route>
-            <Route exact path="/edit-hospital/:id" component={AddHospitalComponent}></Route>
-            <Route path="/view-hospital/:id" component={ViewHospitalComponent}></Route>
-            <Route exact path="/add-vaccine" component={AddVaccineComponent}></Route>
-            <Route exact path="/edit-vaccine/:id" component={AddVaccineComponent}></Route>
-            <Route exact path="/admin-view-vaccine/:id" component={AdminViewVaccine}></Route>
-            <Route path='/user-home' component={UserHomePageComponent}></Route>
+            
+            {showAdminBoard &&[
+              <Route path='/admin-home' component={AdminHomeComponent}></Route>,
+              <Route path='/doctors' component={ListDoctorComponents}></Route>,
+              <Route path='/add-doctor' component={AddDoctorComponent}></Route>,
+              <Route path='/edit-doctor/:id' component={AddDoctorComponent}></Route>,
+              <Route path='/view-doctor/:id' component={ViewDoctorComponent}></Route>,
+
+              <Route exact path="/hospitals" component={ListHospitalComponent}></Route>,
+              <Route exact path="/add-hospital" component={AddHospitalComponent}></Route>,
+              <Route exact path="/edit-hospital/:id" component={AddHospitalComponent}></Route>,
+              <Route path="/view-hospital/:id" component={ViewHospitalComponent}></Route>,  
+            
+              <Route exact path="/vaccines" component={ListVaccineComponent}></Route>,
+              <Route exact path="/add-vaccine" component={AddVaccineComponent}></Route>,
+              <Route exact path="/edit-vaccine/:id" component={AddVaccineComponent}></Route>,
+              <Route exact path="/admin-view-vaccine/:id" component={AdminViewVaccine}></Route>,
+            
+              <Route path='/benificiaries' component={ListBenificiaryComponent}></Route>,           
+              <Route path='/view-benificiary/:id' component={ViewBenificiaryComponent}></Route>   
+              
+            ]}
             <Route path='/vaccine-calender' component={VaccineCalenderComponent}></Route>
-            <Route path='/view-user-profile' component={UserProfileComponent}></Route>
-            <Route path='/edit-user-profile' component={EditUserProfileComponent}></Route>
             <Route path='/booking-details' component={ListBookingComponent}></Route>
-            <Route path='/book-vaccine' component={AddBookingComponent}></Route>
             <Route path='/about-us' component={AboutVaccineComponent}></Route>
             <Route path='/contact-us' component={ContactComponent}></Route>
             <Route path='/view-vaccine/:id' component={ViewVaccineComponent}></Route>
-            <Route path='/hospital-doctors' component={HospitalDoctorList}></Route>
+            
             <Redirect to='/'></Redirect>
           </Switch>
         </div>

@@ -2,12 +2,14 @@ import React, { useEffect,useState } from 'react'
 import {Link, useHistory,useParams} from "react-router-dom";
 import BookingService from '../../services/BookingService'
 import VaccineService from '../../services/VaccineService';
+import DatePicker from 'react-datepicker';
+import HospitalService from '../../services/HospitalService';
 const AddBookingComponent = () => {
  
     const[firstName,setFirstName]=useState('')
     const[lastName,setLastName]=useState('')
     const[email,setEmail]=useState('')
-    const[date,setDate]=useState('')
+    const[date,setDate]=useState(null)
     const[time,setTime]=useState('')
     const[vaccineName,setVaccineName]=useState('')
     const[hospitalName,setHospitalName]=useState('')
@@ -29,16 +31,24 @@ const AddBookingComponent = () => {
         })
     }
 
-    
+    const[vaccines,setVaccines]=useState([])
+    const[hospitals,setHospitals]=useState([])
 
-    // useEffect(() => {
-    //     VaccineService.getAllVaccines().then((response)=>{
-    //         setVaccineName(response.data)
-    //     }).catch(error=>{
-    //         console.log(error)
-    //     });
+    useEffect(() => {
+        VaccineService.getAllVaccines().then((response)=>{
+            setVaccines(response.data)
+        }).catch(error=>{
+            console.log(error)
+        });
+
+        HospitalService.getAllHospitals().then((response)=>{
+            setHospitals(response.data)
+        }).catch(error=>{
+            console.log(error)
+        })
+
         
-    // }, [])
+    }, [])
     
 
     return(
@@ -94,15 +104,18 @@ const AddBookingComponent = () => {
 
                             <div className="form-group mb-2">
                                 <label className="form-lable">Booking Date:<span style={{color:"red"}}>*</span></label>
-                                <input
-                                    type="date"
-                                    placeholder="Enter booking date"
-                                    name="date"
+                                <DatePicker
+                                   selected={date}
                                     className="form-control"
-                                    value={date}
-                                    onChange={(e) => setDate(e.target.value)}
+                                    //value={date}
+                                    onChange={(e) => setDate(e)}
+                                    dateFormat='yyyy/MM/dd'
+                                    minDate={new Date()}
+                                    isClearable
+                                    showYearDropdown
+                                    scrollableMonthYearDropdown
                                 >
-                                </input>
+                                </DatePicker>
 
                             <div className='form-group mb-2'>
                                 <label className="form-lable">Time slot:<span style={{color:"red"}}>*</span></label>
@@ -123,7 +136,7 @@ const AddBookingComponent = () => {
                                 </select>
                                 </div>
 
-                            <div className="form-group mb-2">
+                            {/* <div className="form-group mb-2">
                                 <label className="form-lable">Vaccine Name:<span style={{color:"red"}}>*</span></label>
                                 <input
                                     type="text"
@@ -134,9 +147,9 @@ const AddBookingComponent = () => {
                                     onChange={(e) => setVaccineName(e.target.value)}
                                 >
                                 </input>
-                            </div>
+                            </div> */}
 
-                            {/* <div className="form-group mb-2">
+                            <div className="form-group mb-2">
                                 <label className="form-lable">Vaccine Name:<span style={{color:"red"}}>*</span></label>
                                <select
                                type="select"
@@ -146,13 +159,29 @@ const AddBookingComponent = () => {
                                value={vaccineName}
                                onChange={(e) => setVaccineName(e.target.value)}>
                                    
-                                   {vaccineName.map((vaccine)=>(
+                                   {vaccines.map((vaccine)=>(
                                        
-                                    <option >{vaccine.vaccineName}</option>))}
+                                    <option key={vaccine.id}>{vaccine.vaccineName}</option>))}
                                </select>
-                            </div> */}
+                            </div>
 
                             <div className="form-group mb-2">
+                                <label className="form-lable">Hospital Name:<span style={{color:"red"}}>*</span></label>
+                               <select
+                               type="select"
+                               placeholder="Enter vaccine name"
+                               name="hospitalName"
+                               className="form-control"
+                               value={hospitalName}
+                               onChange={(e) => setHospitalName(e.target.value)}>
+                                   
+                                   {hospitals.map((hospital)=>(
+                                       
+                                    <option key={hospital.id}>{hospital.hospitalName}</option>))}
+                               </select>
+                            </div>
+
+                            {/* <div className="form-group mb-2">
                                 <label className="form-lable">Hospital Name:<span style={{color:"red"}}>*</span></label>
                                 <input
                                     type="text"
@@ -163,7 +192,7 @@ const AddBookingComponent = () => {
                                     onChange={(e) => setHospitalName(e.target.value)}
                                 >
                                 </input>
-                            </div>
+                            </div> */}
 
                             
                             </div>
